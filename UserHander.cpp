@@ -41,7 +41,32 @@ void RegisterUser(std::vector<User>& users, char login[32])
     std::cout << "Создайте пароль (до 40 символов): ";
     std::cin >> password;
     users.push_back(User(login, password));
-    std::cout << "Пользователь создан!\n";
+}
+
+/*
+Changes the password for a chosen user in vector<User>.
+*/
+void ChangePassword(std::vector<User> &users, char login[32], char password[40])
+{
+    for (__int32_t i = 0; i < users.size(); i++)
+        if (!strcmp(login, users[i].name))
+        {
+            strcpy(users[i].password, password);
+            break;
+        }
+}
+
+/*
+Changes the login for a chosen user in vector<User>.
+*/
+void ChangeLogin(std::vector<User> &users, char login[32])
+{
+    for (__int32_t i = 0; i < users.size(); i++)
+        if (!strcmp(login, users[i].name))
+        {
+            strcpy(users[i].name, login);
+            break;
+        }
 }
 
 /*

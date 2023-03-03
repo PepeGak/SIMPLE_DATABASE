@@ -31,7 +31,47 @@ int main(int argc, char *args[])
                 cout << "Введите пароль (до 40 символов): ";
                 cin >> password;
                 if (CheckPassword(users, login, password))
+                {
                     cout << "Доступ разрешён\n";
+                    cout << "Выберите вариант: "
+                    "1: Сменить пароль"
+                    "2: Сменить логин"
+                    "3: Удалить аккаунт"
+                    "4: Выход";
+                    cin >> choice;
+                    switch (choice)
+                    {
+                        case '1':
+                            {
+                                cout << "Введите новый пароль (до 40 символов): ";
+                                cin >> password;
+                                ChangePassword(users, login, password);
+                                cout << "Пароль изменён!\n";
+                            }
+                        case '2':
+                            {
+                                cout << "Ввудите новый логин (до 32 символов): ";
+                                cin >> login;
+                                if (!CheckLogin(users, login))
+                                {
+                                    ChangeLogin(users, login);
+                                    cout << "Логин изменён!\n";
+                                }
+                                else
+                                    cout << "Данный логин уже занят!\n";
+                            }
+                        case '3':
+                            {
+
+                            }
+                            break;
+                        case '4':
+                        break;
+                    
+                    default:
+                        break;
+                    }
+                }
                 else
                     cout << "Доступ запрещён\n";
             }
@@ -41,7 +81,10 @@ int main(int argc, char *args[])
                 char yn;
                 cin >> yn;
                 if (yn == 'Д' || yn == 'д')
+                {
                     RegisterUser(users, login);
+                    cout << "Аккаунт создан!\n";
+                }
             }
         }
         break;

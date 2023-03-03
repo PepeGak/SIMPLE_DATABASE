@@ -12,5 +12,7 @@ void ReadFromFile(std::vector<User>& users);
 bool CheckLogin(std::vector<User>& users, char login[32]);
 bool CheckPassword(std::vector<User>& users, char login[32], char password[40]);
 void RegisterUser(std::vector<User>& users, char login[32]);
+void ChangePassword(std::vector<User>& users, char login[32], char password[40]);
+void ChangeLogin(std::vector<User>& users, char login[32]);
 
 #endif
